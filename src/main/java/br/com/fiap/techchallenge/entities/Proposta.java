@@ -26,7 +26,6 @@ public class Proposta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProposta;
 
-    @NotBlank(message = "Descrição não pode estar em branco")
     private String descricaoProposta;
 
     @Temporal(TemporalType.DATE)

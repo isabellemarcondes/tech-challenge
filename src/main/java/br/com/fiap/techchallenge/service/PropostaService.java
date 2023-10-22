@@ -18,7 +18,9 @@ public class PropostaService {
 
     @Autowired
     public PropostaService(PropostaRepository propostaRepository) {
+
         this.propostaRepository = propostaRepository;
+
     }
 
     public PropostaDTO save(PropostaDTO propostaDTO) {
@@ -62,7 +64,13 @@ public class PropostaService {
 
     public void delete(Long idProposta) {
 
+        propostaRepository.findById(idProposta)
+                .orElseThrow(
+                        () -> new ControllerNotFoundException("Proposta não encontrada")
+                );
+
         propostaRepository.deleteById(idProposta);
+
 
     }
 

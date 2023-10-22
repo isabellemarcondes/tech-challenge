@@ -2,6 +2,7 @@ package br.com.fiap.techchallenge.controller;
 
 import br.com.fiap.techchallenge.dto.PropostaDTO;
 import br.com.fiap.techchallenge.service.PropostaService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class PropostaController {
     }
 
     @PostMapping
-    public ResponseEntity<PropostaDTO> save(@RequestBody PropostaDTO propostaDTO) {
+    public ResponseEntity<PropostaDTO> save(@Valid @RequestBody PropostaDTO propostaDTO) {
 
         var savedProposta = propostaService.save(propostaDTO);
         return new ResponseEntity<>(savedProposta, HttpStatus.CREATED);
@@ -46,7 +47,7 @@ public class PropostaController {
 
     @PutMapping("/{idProposta}")
     public ResponseEntity<PropostaDTO> update(@PathVariable Long idProposta,
-                                              @RequestBody PropostaDTO propostaDTO) {
+                                              @Valid @RequestBody PropostaDTO propostaDTO) {
 
         var updatedProposta = propostaService.update(idProposta, propostaDTO);
         return ResponseEntity.ok(updatedProposta);
