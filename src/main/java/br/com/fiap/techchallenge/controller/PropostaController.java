@@ -25,7 +25,7 @@ public class PropostaController {
     public ResponseEntity<PropostaDTO> save(@Valid @RequestBody PropostaDTO propostaDTO) {
 
         var savedProposta = propostaService.save(propostaDTO);
-        return new ResponseEntity<>(savedProposta, HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedProposta);
 
     }
 

@@ -13,6 +13,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Builder
@@ -30,6 +32,9 @@ public class Proposta {
 
     @Temporal(TemporalType.DATE)
     private LocalDate dataGeracaoProposta;
+
+    @OneToMany
+    private List<Produto> produtos = new ArrayList<>();
 
     @PrePersist
     protected void onCreate(){

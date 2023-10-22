@@ -79,7 +79,8 @@ public class PropostaService {
         return new PropostaDTO(
                 proposta.getIdProposta(),
                 proposta.getDescricaoProposta(),
-                proposta.getDataGeracaoProposta()
+                proposta.getDataGeracaoProposta(),
+                proposta.getProdutos()
         );
 
     }
@@ -89,7 +90,8 @@ public class PropostaService {
         return new Proposta(
                 propostaDTO.idProposta(),
                 propostaDTO.descricaoProposta(),
-                propostaDTO.dataGeracaoProposta()
+                propostaDTO.dataGeracaoProposta(),
+                propostaDTO.produtos()
         );
 
     }
