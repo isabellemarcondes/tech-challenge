@@ -62,4 +62,13 @@ public class PropostaController {
 
     }
 
+    //@PutMapping("/{idProposta}")
+    //public ResponseEntity<PropostaDTO> addProduto(@PathVariable Long idProposta,
+    //                                              @Valid @RequestBody ProdutoDTO produtoDTO) {
+
+    //    var updatedProposta = propostaService.addProduto(idProposta, produtoDTO);
+    //    return ResponseEntity.ok(updatedProposta);
+
+    //}
+
 }

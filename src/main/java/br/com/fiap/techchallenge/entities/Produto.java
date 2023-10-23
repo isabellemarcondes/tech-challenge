@@ -19,9 +19,4 @@ public class Produto {
     private Long idProduto;
 
     private String codigoProduto;
-
-    private String familiaProduto;
-
-    private String classeProduto;
-
 }

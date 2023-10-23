@@ -71,7 +71,6 @@ public class PropostaService {
 
         propostaRepository.deleteById(idProposta);
 
-
     }
 
     private PropostaDTO toPropostaDTO(Proposta proposta) {
