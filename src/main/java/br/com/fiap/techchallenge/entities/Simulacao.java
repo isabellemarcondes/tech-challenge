@@ -15,24 +15,28 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tb_proposta")
-public class Proposta {
+@Table(name = "tb_simulacoes")
+public class Simulacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idProposta;
+    private Long idSimulacao;
 
-    private String descricaoProposta;
+    private String descricaoSimulacao;
+
+    @Enumerated(EnumType.STRING)
+    private PerfilInvestidor perfilInvestidor;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 
     @Temporal(TemporalType.DATE)
-    private LocalDate dataGeracaoProposta;
-
-    @OneToMany
-    private List<Produto> produtos = new ArrayList<>();
+    private LocalDate dataGeracaoSimulacao;
 
     @PrePersist
     protected void onCreate(){
-        dataGeracaoProposta = LocalDate.now();
+        dataGeracaoSimulacao = LocalDate.now();
     }
 
 }
