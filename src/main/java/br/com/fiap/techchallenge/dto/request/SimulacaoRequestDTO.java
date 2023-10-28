@@ -14,6 +14,5 @@ public record SimulacaoRequestDTO(
         @NotNull(message = "Perfil de investidor não deve ser nulo")
         int idPerfilInvestidor,
 
-        @NotNull(message = "Informações da conta não podem ser vazias")
         ClienteDTO cliente) {
 }

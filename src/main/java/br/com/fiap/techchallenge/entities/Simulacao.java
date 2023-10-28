@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Builder
@@ -33,6 +34,14 @@ public class Simulacao {
 
     @Temporal(TemporalType.DATE)
     private LocalDate dataGeracaoSimulacao;
+
+    @ManyToMany
+    @JoinTable(
+            name = "simulacao_produto",
+            joinColumns = @JoinColumn(name = "simulacao_id"),
+            inverseJoinColumns = @JoinColumn(name = "produto_id")
+    )
+    private Set<Produto> produtos;
 
     @PrePersist
     protected void onCreate(){

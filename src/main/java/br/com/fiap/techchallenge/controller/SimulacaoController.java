@@ -1,5 +1,6 @@
 package br.com.fiap.techchallenge.controller;
 
+import br.com.fiap.techchallenge.dto.ProdutoDTO;
 import br.com.fiap.techchallenge.dto.request.SimulacaoRequestDTO;
 import br.com.fiap.techchallenge.dto.response.SimulacaoResponseDTO;
 import br.com.fiap.techchallenge.service.SimulacaoService;
@@ -70,6 +71,15 @@ public class SimulacaoController {
 
         simulacaoService.delete(idSimulacao);
         return ResponseEntity.noContent().build();
+
+    }
+
+    @PostMapping("/{id}/adicionar-produto")
+    public ResponseEntity<SimulacaoResponseDTO> addProduto(@PathVariable(value = "id") Long idSimulacao,
+                                                           @RequestBody ProdutoDTO produtoDTO) {
+
+        var simulacao = simulacaoService.addProduto(idSimulacao, produtoDTO);
+        return ResponseEntity.ok(simulacao);
 
     }
 
